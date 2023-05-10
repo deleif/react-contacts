@@ -1,15 +1,15 @@
-
 const ContactCard = (props) => {
-    return (
-        <div > 
-        <h3>{props.name}</h3>
-        <p>{props.tel}</p>
-        <p>{props.email}</p>
+  return (
+    <div>
+      <div class="card" style={{ width: "50%", margin: "auto" }}>
+        <ul class="list-group">
+          <li class="list-group-item active">{props.name}</li>
+          <li class="list-group-item">{props.tel}</li>
+          <li class="list-group-item">{props.email}</li>
+        </ul>
       </div>
-    )
-  }
-  
-  export default ContactCard
+    </div>
+  );
+};
 
-
-  
+export default ContactCard;

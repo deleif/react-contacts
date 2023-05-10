@@ -1,19 +1,12 @@
+import { useState } from "react";
 import "./App.css";
 
-//importa la al hijo
 import ContactList from "./components/ContactList";
 import SearchBar from "./components/SearchBar";
 import AddContact from "./components/AddContact";
 
 const App = () => {
-  // Initialize data
-
-  //inicializa título
-  const titleApp = "Agenda de contactos";
-  const titleSearch = "Introduce un contacto";
-
-  //inicializa listado
-  const contacts = [
+  const [contacts, setContacts] = useState([
     {
       name: "Enrique Aja",
       tel: "621123456",
@@ -29,20 +22,28 @@ const App = () => {
       tel: "612852963",
       email: "alvaro@gmail.com",
     },
-  ];
+  ]);
 
-  //genera el código jsx
+  const titleApp = "Agenda de contactos";
+  const titleSearch = "Introduce un contacto";
+
+  const handleAddContact = (newContact) => {
+    setContacts([...contacts, newContact]);
+  };
+
   return (
     <div>
       <h1>{titleApp}</h1>
 
       <ContactList contacts={contacts} />
-      <hr></hr>
-      <h2>{titleSearch}</h2>
-      <SearchBar SearchBar />
-      <hr></hr>
+      <hr />
 
-      <AddContact AddContact />
+      <h2>{titleSearch}</h2>
+
+      <SearchBar />
+      <hr />
+
+      <AddContact onAddContact={handleAddContact} />
     </div>
   );
 };

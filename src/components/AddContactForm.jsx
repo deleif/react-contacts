@@ -1,26 +1,26 @@
-
 const AddContactForm = (props) => {
-    return (
-        <form >
-          <label>
-            Correo electrónico:
-            <input
-              type="email"
-              value=""       
-            />
-          </label>
-          <br />
-          <label>
-            Mensaje:
-            <textarea
-              value=""
-            />
-          </label>
-          <br />
-          <button type="submit">Enviar</button>
-        </form>
-      )
-  }
-  
-  export default AddContactForm
+  return (
+    <div class="card" style={{ width: "50%", margin: "auto" }}>
+      <form onSubmit={props.onSubmit}>
+        <label>
+          Nombre:
+          <input type="text" name="name" />
+        </label>
+        <br />
+        <label>
+          Correo electrónico:
+          <input type="email" name="email" />
+        </label>
+        <br />
+        <label>
+          Teléfono:
+          <input type="tel" name="tel" />
+        </label>
+        <br />
+        <button type="submit">Añadir</button>
+      </form>
+    </div>
+  );
+};
 
+export default AddContactForm;
