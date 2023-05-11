@@ -1,10 +1,12 @@
 import AddContactForm from "./AddContactForm";
 
 const AddContact = (props) => {
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const newContact = {
+      id: form.elements.id.value,
       name: form.elements.name.value,
       tel: form.elements.tel.value,
       email: form.elements.email.value,
