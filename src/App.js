@@ -1,18 +1,19 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-
 import ContactList from "./components/ContactList";
 import SearchBar from "./components/SearchBar";
 import AddContact from "./components/AddContact";
+import AddContactContext from "./context/AddContactContext";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
 
-  //pilla los datos de la api
+  // Pilla los datos de la API
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => {
+        // Convierte los datos en el formato deseado
         setContacts(
           data.map((contact) => ({
             id: contact.id,
@@ -27,21 +28,25 @@ const App = () => {
   const titleApp = "Agenda de contactos";
   const titleSearch = "Introduce un contacto";
 
-  //para mostrar contactos
+  // Para mostrar contactos
   const handleAddContact = (newContact) => {
+    // Agrega el nuevo contacto a la lista de contactos
     setContacts([...contacts, newContact]);
   };
 
-  //para borrar 1 contacto
+  // Para borrar un contacto
   const handleDeleteContact = (id) => {
+    // Filtra la lista de contactos y elimina el contacto con el ID especificado
     setContacts((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
   };
 
-  //muestra en un alert 1 contacto
+  // Muestra en un alert el detalle de un contacto
   const handleShowDetail = (id) => {
+    // Busca el contacto en la lista de contactos con el ID especificado
     const contact = contacts.find((c) => c.id === id);
+    // Muestra el detalle del contacto en un alert
     alert(JSON.stringify(contact, null, 2));
   };
 
@@ -49,19 +54,25 @@ const App = () => {
     <div>
       <h1>{titleApp}</h1>
 
-      <ContactList
-        contacts={contacts}
-        onShowDetail={handleShowDetail}
-        onDeleteContact={handleDeleteContact}
-      />
-      <hr />
+      {/* Contexto de la función handleAddContact */}
+      <AddContactContext.Provider value={handleAddContact}>
+        {/* Renderiza el componente ContactList */}
+        <ContactList
+          contacts={contacts}
+          onShowDetail={handleShowDetail}
+          onDeleteContact={handleDeleteContact}
+        />
+        <hr />
 
-      <h2>{titleSearch}</h2>
+        <h2>{titleSearch}</h2>
 
-      <SearchBar />
-      <hr />
+        {/* Renderiza el componente SearchBar */}
+        <SearchBar />
+        <hr />
 
-      <AddContact onAddContact={handleAddContact} />
+        {/* Renderiza el componente AddContact */}
+        <AddContact />
+      </AddContactContext.Provider>
     </div>
   );
 };

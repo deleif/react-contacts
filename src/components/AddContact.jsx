@@ -1,24 +1,15 @@
+import React, { useContext } from "react";
 import AddContactForm from "./AddContactForm";
+import AddContactContext from "../context/AddContactContext";
 
-const AddContact = (props) => {
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const newContact = {
-      id: form.elements.id.value,
-      name: form.elements.name.value,
-      tel: form.elements.tel.value,
-      email: form.elements.email.value,
-    };
-    props.onAddContact(newContact);
-    form.reset();
-  };
+const AddContact = () => {
+    // Obtener la función handleAddContact del contexto
+  const handleAddContact = useContext(AddContactContext);
 
   return (
     <div>
       <h2>Añadir contacto</h2>
-      <AddContactForm onSubmit={handleSubmit} />
+      <AddContactForm onAddContact={handleAddContact} />
     </div>
   );
 };
