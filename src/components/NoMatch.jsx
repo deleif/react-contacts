@@ -1,6 +1,6 @@
 const NoMatch = () => {
     return (
-      <div>
+      <div className="centered">
         Página no encontrada
       </div>
     )

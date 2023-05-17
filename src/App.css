@@ -80,11 +80,11 @@ li a:hover:not(.active) {
   background-color: #4caf50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 8px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 
@@ -149,6 +149,33 @@ div {
   background-color: #f2f2f2;
   padding: 5px;
 }
+
+
+
+/*menu*/
+.ulmenu {
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #0489B1;
+}
+
+.limenu {
+  float: left;
+}
+
+.limenu a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.limenu  a:hover:not(.active) {
+  background-color:#0B4C5F;
+}
+
+
+
 
 
 @keyframes App-logo-spin {

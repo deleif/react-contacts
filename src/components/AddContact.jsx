@@ -3,7 +3,7 @@ import AddContactForm from "./AddContactForm";
 import AddContactContext from "../context/AddContactContext";
 
 const AddContact = () => {
-    // Obtener la función handleAddContact del contexto
+    // Obtener la función  del contexto
   const handleAddContact = useContext(AddContactContext);
 
   return (

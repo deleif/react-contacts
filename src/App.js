@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom"
+
 import "./App.css";
 
 /*componentes */
 import ContactList from "./components/ContactList";
 import SearchBar from "./components/SearchBar";
+import AddContactButton from "./components/AddViewContacButton";
 import AddContact from "./components/AddContact";
 import AddContactContext from "./context/AddContactContext";
 import Header from "./components/Header";
 import NoMatch from "./components/NoMatch"
 import Menu from "./components/Menu"
+import Home from "./components/Home"
+
 
 
 const App = () => {
@@ -57,31 +62,43 @@ const App = () => {
     // Muestra el detalle del contacto en un alert
     //alert(JSON.stringify(contact, null, 2));
     setSelectedContact(contact);
- 
+
   };
 
   return (
     <div>
-        <Header titleApp={titleApp} />
+      <Header titleApp={titleApp} />
+      <Menu />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/addcontactos" element={<AddContact />} />
+
+        <Route path="contactos" element={
+          <AddContactContext.Provider value={handleAddContact}>
+            {/* Renderiza el componente ContactList */}
+            <ContactList
+              contacts={contacts}
+              selectedContact={selectedContact}
+              onShowDetail={handleShowDetail}
+              onDeleteContact={handleDeleteContact}
+            />
+            <hr />
+
+            {/* Renderiza el componente SearchBar */}
+            <SearchBar />
+            <hr />
+
+            {/* Renderiza el componente AddContact */}
+            <AddContactButton />
+          </AddContactContext.Provider>
+        } />
+
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
 
       {/* Contexto de la función handleAddContact */}
-      <AddContactContext.Provider value={handleAddContact}>
-        {/* Renderiza el componente ContactList */}
-        <ContactList
-          contacts={contacts}
-          selectedContact={selectedContact}
-          onShowDetail={handleShowDetail}
-          onDeleteContact={handleDeleteContact}
-        />
-        <hr />   
 
-        {/* Renderiza el componente SearchBar */}
-        <SearchBar />
-        <hr />
-
-        {/* Renderiza el componente AddContact */}
-        <AddContact />
-      </AddContactContext.Provider>
     </div>
   );
 };
