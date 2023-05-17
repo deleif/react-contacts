@@ -2,9 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ContactDetail = ({ selectedContact }) => {
-    if (!selectedContact) {
-        return <div>No hay contactos seleccionados</div>;
-    }
+  
 
     const { id, name, tel, email } = selectedContact;
 
@@ -18,7 +16,7 @@ const ContactDetail = ({ selectedContact }) => {
                 <p>Nombre: {name}</p>
                 <p>Teléfono: {tel}</p>
                 <p>Email: {email}</p>
-                <Link to="/contactos">Volver</Link>
+                <Link to="/contactos"><i className="fa fa-arrow-circle-left" aria-hidden="true" style={{ fontSize: "2rem" }}></i></Link>
             </div>
         </div>
 
