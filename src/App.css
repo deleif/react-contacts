@@ -28,9 +28,14 @@
   color: #61dafb;
 }
 
+.h1{
+  margin-left: 15px;
+}
+
 .poster {
   display: flex;
   justify-content: center;
+
 }
 
 

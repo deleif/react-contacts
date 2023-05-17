@@ -4,8 +4,8 @@ const Header = ({ titleApp }) => {
   return (
     <div>
       <div className="poster">
-        <img src={dbImg} alt="Contactos" width={50} />
-        <h1>{titleApp}</h1>
+        <img src={dbImg} alt="Contactos" width={65} />
+        <h1 className="h1">{titleApp}</h1>
       </div>
     </div>
   );
