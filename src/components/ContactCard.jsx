@@ -9,10 +9,14 @@ const ContactCard = (props) => {
           </li>
           <li className="list-group-item">{props.email}</li>
           <li className="list-group-item">{props.tel}</li>
-          <button onClick={() => props.onShowDetail(props.id)}>
+          <li><button className="buttonlistblue" onClick={() => props.onShowDetail(props.id)}>
             Mostrar detalle
           </button>
-          <button onClick={() => props.onDeleteContact(props.id)}>Eliminar</button>
+          
+          <button className="buttonlistred" onClick={() => props.onDeleteContact(props.id)}>Eliminar</button>
+          </li>
+
+     
         </ul>
       </div>
     </div>

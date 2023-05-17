@@ -66,7 +66,7 @@ const AddContactForm = () => {
         <label>
           Teléfono:
           <input
-            type="tel"
+            type="text"
             value={tel}
             onChange={(e) => setTel(e.target.value)}
           />

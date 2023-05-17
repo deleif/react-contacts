@@ -28,6 +28,124 @@
   color: #61dafb;
 }
 
+.poster {
+  display: flex;
+  justify-content: center;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+li {
+  float: left;
+  margin-top: 10px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04aa6d;
+}
+
+.divmenu {
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/*botón*/
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+.buttonlistblue {
+   background-color: #2874A6; /*  */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin-left:5px;
+  margin-right:5px;
+}
+
+
+.buttonlistred {
+background-color: red; /*  */
+ border: none;
+ color: white;
+ padding: 5px 10px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 12px;
+ margin-left:5px;
+ margin-right:5px;
+}
+
+
+.button-child {
+
+  width: 25%;
+}
+
+/*div centrado*/
+.centered {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/*formularios*/
+input[type="text"], input[type="email"] , select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 5px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

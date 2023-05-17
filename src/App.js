@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+
+/*componentes */
 import ContactList from "./components/ContactList";
 import SearchBar from "./components/SearchBar";
 import AddContact from "./components/AddContact";
 import AddContactContext from "./context/AddContactContext";
+import Header from "./components/Header";
+
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -26,7 +30,6 @@ const App = () => {
   }, []);
 
   const titleApp = "Agenda de contactos";
-  const titleSearch = "Introduce un contacto";
 
   // Para mostrar contactos
   const handleAddContact = (newContact) => {
@@ -52,7 +55,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>{titleApp}</h1>
+        <Header titleApp={titleApp} />
 
       {/* Contexto de la función handleAddContact */}
       <AddContactContext.Provider value={handleAddContact}>
@@ -64,7 +67,7 @@ const App = () => {
         />
         <hr />
 
-        <h2>{titleSearch}</h2>
+    
 
         {/* Renderiza el componente SearchBar */}
         <SearchBar />

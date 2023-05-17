@@ -7,9 +7,11 @@ const AddContact = () => {
   const handleAddContact = useContext(AddContactContext);
 
   return (
-    <div>
-      <h2>Añadir contacto</h2>
+    <div >
+      <h4 className="centered">Añadir contacto</h4>
+      <div className="centered">
       <AddContactForm onAddContact={handleAddContact} />
+      </div>
     </div>
   );
 };
