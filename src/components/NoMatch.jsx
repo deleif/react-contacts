@@ -1,7 +1,7 @@
 const NoMatch = () => {
     return (
       <div>
-        Estos no son los androides que buscas
+        Página no encontrada
       </div>
     )
   }

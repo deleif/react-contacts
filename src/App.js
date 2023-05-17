@@ -7,6 +7,8 @@ import SearchBar from "./components/SearchBar";
 import AddContact from "./components/AddContact";
 import AddContactContext from "./context/AddContactContext";
 import Header from "./components/Header";
+import NoMatch from "./components/NoMatch"
+import Menu from "./components/Menu"
 
 
 const App = () => {
