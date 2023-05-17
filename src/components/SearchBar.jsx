@@ -6,7 +6,7 @@ const SearchBar = (props) => {
 
     return (
 
-        <div className="centered"> 
+        <div className="card centered"> 
               <h4>{titleSearch}</h4>
         <input type="text" value="Introduce un contacto"/>
       </div>
