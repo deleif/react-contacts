@@ -28,44 +28,13 @@
   color: #61dafb;
 }
 
-.h1{
+.h1 {
   margin-left: 15px;
 }
 
 .poster {
   display: flex;
   justify-content: center;
-
-}
-
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-
-}
-
-li {
-  float: left;
-  margin-top: 10px;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #04aa6d;
 }
 
 .divmenu {
@@ -87,9 +56,8 @@ li a:hover:not(.active) {
   font-size: 14px;
 }
 
-
 .buttonlistblue {
-   background-color: #2874A6; /*  */
+  background-color: #2874a6; /*  */
   border: none;
   color: white;
   padding: 5px 10px;
@@ -97,27 +65,24 @@ li a:hover:not(.active) {
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
-  margin-left:5px;
-  margin-right:5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
-
 
 .buttonlistred {
-background-color: red; /*  */
- border: none;
- color: white;
- padding: 5px 10px;
- text-align: center;
- text-decoration: none;
- display: inline-block;
- font-size: 12px;
- margin-left:5px;
- margin-right:5px;
+  background-color: red; /*  */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-
 .button-child {
-
   width: 25%;
 }
 
@@ -129,7 +94,9 @@ background-color: red; /*  */
 }
 
 /*formularios*/
-input[type="text"], input[type="email"] , select {
+input[type="text"],
+input[type="email"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -139,8 +106,7 @@ input[type="text"], input[type="email"] , select {
   box-sizing: border-box;
 }
 
-
-input[type=submit]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -150,13 +116,11 @@ div {
   padding: 5px;
 }
 
-
-
 /*menu*/
 .ulmenu {
   list-style-type: none;
   overflow: hidden;
-  background-color: #0489B1;
+  background-color: #0489b1;
 }
 
 .limenu {
@@ -170,21 +134,18 @@ div {
   text-decoration: none;
 }
 
-.limenu  a:hover:not(.active) {
-  background-color:#0B4C5F;
+.limenu a:hover:not(.active) {
+  background-color: #0b4c5f;
 }
 
 .card {
-  margin:20px;
-
+  margin: 20px;
 }
-
 
 .custom-list-item {
-  background-color: #E6E6E6;
-  color:#6E6E6E;
+  background-color: #e6e6e6;
+  color: #6e6e6e;
 }
-
 
 @keyframes App-logo-spin {
   from {

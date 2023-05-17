@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 
+import React from "react";
+import { Typography } from "@material-tailwind/react";
+
 const Menu = () => {
   return (
-    <div className="divmenu">
-      <ul className="ulmenu">
-        <li className="limenu">
-          <Link to="/">Inicio</Link>
-        </li>
-        <li className="limenu">
-          <Link to="contactos">Contactos</Link>
-        </li>
-      </ul>
-    </div>
+    <ul className="flex bg-gray-200">
+      <li className="inline-block border border-white rounded hover:border-gray-200 text-blue-700 font-semibold hover:bg-gray-200 py-1 px-3">
+        <Link to="/">Inicio</Link>
+      </li>
+      <li className="inline-block border border-white rounded hover:border-gray-200 text-blue-700 font-semibold hover:bg-gray-200 py-1 px-3">
+        <Link to="contactos">Contactos</Link>
+      </li>
+    </ul>
   );
 };
 
 export default Menu;
+{
+  /* <Link to="/">Inicio</Link>
+       <Link to="contactos">Contactos</Link> */
+}

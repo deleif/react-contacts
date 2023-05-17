@@ -37,6 +37,7 @@ const App = () => {
   const titleApp = "Agenda de contactos";
 
   const handleAddContact = (newContact) => {
+    console.log("hola");
     setContacts([...contacts, newContact]);
   };
 
@@ -59,7 +60,14 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/addcontactos" element={<AddContact />} />
+        <Route
+          path="/addcontactos"
+          element={
+            <AddContactContext.Provider value={handleAddContact}>
+              <AddContact />
+            </AddContactContext.Provider>
+          }
+        />
         <Route
           path="/contactos"
           element={
@@ -78,7 +86,8 @@ const App = () => {
           }
         />
         <Route
-          path="/contactos/:id" element={<ContactDetail selectedContact={selectedContact} />}
+          path="/contactos/:id"
+          element={<ContactDetail selectedContact={selectedContact} />}
         />
         <Route path="*" element={<NoMatch />} />
       </Routes>

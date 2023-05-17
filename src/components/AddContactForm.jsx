@@ -2,14 +2,12 @@ import React, { useState, useContext } from "react";
 import AddContactContext from "../context/AddContactContext";
 
 const AddContactForm = () => {
-
   // Estado local para los campos del formulario
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
 
-  // Obtener la función handleAddContact del contexto
   const handleAddContact = useContext(AddContactContext);
 
   // Manejar el envío del formulario
@@ -24,7 +22,8 @@ const AddContactForm = () => {
       tel,
     };
 
-    // Llamar a la función handleAddContact del contexto para agregar el nuevo contacto
+    // Llamar a la función handleAddContact  para agregar el nuevo contacto
+
     handleAddContact(newContact);
 
     // Limpiar los campos del formulario
