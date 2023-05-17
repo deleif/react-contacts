@@ -1,18 +1,18 @@
 import ContactCard from "./ContactCard";
 
 const ContactList = (props) => {
-  const contacts = props.contacts;
- 
-  return contacts.map((contact, index) => (
+  const { contacts, selectedContact, onShowDetail, onDeleteContact } = props;
+
+  return contacts.map((contact) => (
     <ContactCard
+      key={contact.id}
       id={contact.id}
       name={contact.name}
-      selectedContact={props.selectedContact}
-      onShowDetail={props.onShowDetail} // muestra 1 contacto
-      onDeleteContact={props.onDeleteContact} // elimina 1 contacto
+      selectedContact={selectedContact}
+      onShowDetail={onShowDetail}
+      onDeleteContact={onDeleteContact}
     />
   ));
 };
 
 export default ContactList;
-
