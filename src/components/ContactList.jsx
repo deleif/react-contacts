@@ -1,4 +1,3 @@
-
 import ContactCard from "./ContactCard";
 
 const ContactList = (props) => {
@@ -8,12 +7,12 @@ const ContactList = (props) => {
     <ContactCard
       id={contact.id}
       name={contact.name}
-      email={contact.email}
-      tel={contact.tel}
-      onShowDetail={props.onShowDetail} //muestra 1 contacto
-      onDeleteContact={props.onDeleteContact} //elimina 1 contacto
+      selectedContact={props.selectedContact}
+      onShowDetail={props.onShowDetail} // muestra 1 contacto
+      onDeleteContact={props.onDeleteContact} // elimina 1 contacto
     />
   ));
 };
 
 export default ContactList;
+

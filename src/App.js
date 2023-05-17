@@ -12,6 +12,9 @@ import Header from "./components/Header";
 const App = () => {
   const [contacts, setContacts] = useState([]);
 
+  // estado para almacenar el contacto seleccionado
+  const [selectedContact, setSelectedContact] = useState(null);
+
   // Pilla los datos de la API
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -50,7 +53,9 @@ const App = () => {
     // Busca el contacto en la lista de contactos con el ID especificado
     const contact = contacts.find((c) => c.id === id);
     // Muestra el detalle del contacto en un alert
-    alert(JSON.stringify(contact, null, 2));
+    //alert(JSON.stringify(contact, null, 2));
+    setSelectedContact(contact);
+ 
   };
 
   return (
@@ -62,12 +67,11 @@ const App = () => {
         {/* Renderiza el componente ContactList */}
         <ContactList
           contacts={contacts}
+          selectedContact={selectedContact}
           onShowDetail={handleShowDetail}
           onDeleteContact={handleDeleteContact}
         />
-        <hr />
-
-    
+        <hr />   
 
         {/* Renderiza el componente SearchBar */}
         <SearchBar />
