@@ -3,8 +3,8 @@ const ContactCard = (props) => {
     <div>
       <div className="card" style={{ width: "50%", margin: "auto" }}>
         <ul className="list-group">
-          <li className="list-group-item active">
-            {props.id} | {props.name}
+          <li className="list-group-item custom-list-item">
+           {props.name}
           </li>
           {props.selectedContact && props.selectedContact.id === props.id && (
             <>
