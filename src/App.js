@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import tasksReducer from "./slices/tasks/tasksSlice";
 
 import "./App.css";
 
@@ -13,6 +16,7 @@ import Header from "./components/Header";
 import NoMatch from "./components/NoMatch";
 import Menu from "./components/Menu";
 import Home from "./components/Home";
+import TasksList from "./components/TasksList";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -36,6 +40,12 @@ const App = () => {
 
   const titleApp = "Agenda de contactos";
 
+  const store = configureStore({
+    reducer: {
+      tasks: tasksReducer,
+    },
+  });
+
   const handleAddContact = (newContact) => {
     console.log("hola");
     setContacts([...contacts, newContact]);
@@ -54,44 +64,47 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Header titleApp={titleApp} />
-      <Menu />
+    <Provider store={store}>
+      <div>
+        <Header titleApp={titleApp} />
+        <Menu />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/addcontactos"
-          element={
-            <AddContactContext.Provider value={handleAddContact}>
-              <AddContact />
-            </AddContactContext.Provider>
-          }
-        />
-        <Route
-          path="/contactos"
-          element={
-            <AddContactContext.Provider value={handleAddContact}>
-              <ContactList
-                contacts={contacts}
-                selectedContact={selectedContact}
-                onShowDetail={handleShowDetail}
-                onDeleteContact={handleDeleteContact}
-              />
-              <hr />
-              <SearchBar />
-              <hr />
-              <AddContactButton />
-            </AddContactContext.Provider>
-          }
-        />
-        <Route
-          path="/contactos/:id"
-          element={<ContactDetail selectedContact={selectedContact} />}
-        />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
-    </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/addcontactos"
+            element={
+              <AddContactContext.Provider value={handleAddContact}>
+                <AddContact />
+              </AddContactContext.Provider>
+            }
+          />
+          <Route
+            path="/contactos"
+            element={
+              <AddContactContext.Provider value={handleAddContact}>
+                <ContactList
+                  contacts={contacts}
+                  selectedContact={selectedContact}
+                  onShowDetail={handleShowDetail}
+                  onDeleteContact={handleDeleteContact}
+                />
+                <hr />
+                <SearchBar />
+                <hr />
+                <AddContactButton />
+              </AddContactContext.Provider>
+            }
+          />
+          <Route
+            path="/contactos/:id"
+            element={<ContactDetail selectedContact={selectedContact} />}
+          />
+          <Route path="/tareas" element={<TasksList />} />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </div>
+    </Provider>
   );
 };
 
