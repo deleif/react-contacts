@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchTasks } from "../slices/tasks/tasksSlice";
+import { fetchTasks, deleteTask } from "../slices/tasks/tasksSlice";
+import TasksCard from "./TasksCard";
 
 const TasksList = () => {
   const dispatch = useDispatch();
@@ -33,53 +34,14 @@ const TasksList = () => {
             </thead>
             <tbody>
               {tasks.map((task, index) => (
-                <tr>
-                  <td
-                    className="py-2  px-1 border-b border-gray-200"
-                    key={index}
-                  >
-                    {task.id}
-                  </td>
-                  <td
-                    className="py-2  px-1 border-b border-gray-200"
-                    key={index}
-                  >
-                    {task.userId}
-                  </td>
-                  <td
-                    className="py-2  px-1 border-b border-gray-200"
-                    key={index}
-                  >
-                    {task.title}
-                  </td>
-                  <td
-                    className="py-2 px-1  border-b border-gray-200 text-center"
-                    key={index}
-                  >
-                    {task.completed ? (
-                      <span className="text-green-500">&#10004;</span>
-                    ) : (
-                      <span className="text-red-500">&#10008;</span>
-                    )}
-                  </td>
-                  <td>
-                    <button className="text-sm  bg-gray-400 hover:bg-gray-600 text-white  py-1 px-3 rounded ml-2">
-                      Añadir
-                    </button>
-                    <button className="text-sm  bg-red-500 hover:bg-red-700 text-white  py-1 px-3 rounded ml-2">
-                      Eliminar
-                    </button>
-                  </td>
-                </tr>
+                <TasksCard
+                  key={index}
+                  task={task}
+                  deleteTask={() => dispatch(deleteTask(task.id))}
+                />
               ))}
             </tbody>
           </table>
-
-          {/*     <ul>
-            {tasks.map((task, index) => (
-              <li key={index}>{task.title}</li>
-            ))}
-          </ul> */}
         </div>
       </div>
     </div>
