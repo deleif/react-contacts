@@ -1,12 +1,15 @@
 import React from "react";
 
-const TasksCard = ({ task, deleteTask }) => {
+const TasksCard = ({ task, deleteTask, changeTask }) => {
   return (
     <tr>
       <td className="py-2 px-1 border-b border-gray-200">{task.id}</td>
       <td className="py-2 px-1 border-b border-gray-200">{task.userId}</td>
       <td className="py-2 px-1 border-b border-gray-200">{task.title}</td>
-      <td className="py-2 px-1 border-b border-gray-200 text-center">
+      <td
+        className="py-2 px-1 border-b border-gray-200 text-center"
+        onClick={() => changeTask(task.id)}
+      >
         {task.completed ? (
           <span className="text-green-500">&#10004;</span>
         ) : (

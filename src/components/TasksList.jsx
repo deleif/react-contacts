@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchTasks, deleteTask } from "../slices/tasks/tasksSlice";
+import { fetchTasks, deleteTask, changeTask } from "../slices/tasks/tasksSlice";
 import TasksCard from "./TasksCard";
 
 const TasksList = () => {
@@ -25,9 +25,9 @@ const TasksList = () => {
               <tr>
                 <th className="py-2 px-1 border-b border-gray-200">ID</th>
                 <th className="py-2 px-1 border-b border-gray-200">User</th>
-                <th className="py-2 px-1 border-b border-gray-200">Tarea</th>
+                <th className="py-2 px-1 border-b border-gray-200">Task</th>
                 <th className="py-2 px-1 border-b border-gray-200">
-                  Completada
+                  Completed
                 </th>
                 <th className="colspan-2"></th>
               </tr>
@@ -38,6 +38,7 @@ const TasksList = () => {
                   key={index}
                   task={task}
                   deleteTask={() => dispatch(deleteTask(task.id))}
+                  changeTask={() => dispatch(changeTask(task.id))}
                 />
               ))}
             </tbody>
